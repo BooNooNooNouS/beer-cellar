@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>{{ title }} - Cellar project</title>
+    </head>
+    <body>
+        <h1>Beers in the cellar by {{ brewery }}</h1>
+        <ul>
+           {% for beer in beers %}
+            <li> {{ beer }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
