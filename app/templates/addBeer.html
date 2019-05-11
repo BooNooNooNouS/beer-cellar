@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1>Add a new beer to the cellar</h1>
+    <form action="" method="post" novalidate>
+        <!--protects against csrf attacks in combination with SECRET_KEY-->
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.brewery.label }}<br>
+            {{ form.brewery(size=32) }}
+        </p>
+        <p>
+            {{ form.beer.label }}<br>
+            {{ form.beer(size=32) }}
+        </p>
+        <p>
+            {{ form.quantity.label }}<br>
+            {{ form.quantity() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

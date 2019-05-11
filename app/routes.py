@@ -1,5 +1,7 @@
 from app import app
-from flask import render_template
+from app.forms import AddBeerForm
+from flask import render_template, redirect
+
 
 mock_breweries = [
     'Avery Brewing',
@@ -38,3 +40,18 @@ def breweries():
 @app.route('/brewery/<name>')
 def brewery(name):
     return render_template('brewery.html', title=name, brewery=name, beers=mock_beers)
+
+@app.route('/beers')
+def beers():
+    return render_template('beers.html', title='All beers', beers=mock_beers)
+
+
+@app.route('/beers/add', methods=['POST', 'GET'])
+def addBeer():
+    form = AddBeerForm()
+    if form.validate_on_submit():
+        mock_beers.append(form.beer.data)
+        mock_breweries.append(form.brewery.data)
+        return redirect('/beers')
+
+    return render_template('addBeer.html', title='Add a new beer', form=form)
