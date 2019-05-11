@@ -3,3 +3,5 @@ Redis
 python-dotenv
 flask-wtf
 wtforms
+flask-sqlalchemy
+flask-migrate
