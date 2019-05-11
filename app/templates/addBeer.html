@@ -8,14 +8,23 @@
         <p>
             {{ form.brewery.label }}<br>
             {{ form.brewery(size=32) }}
+            {% for error in form.brewery.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
         </p>
         <p>
             {{ form.beer.label }}<br>
             {{ form.beer(size=32) }}
+            {% for error in form.beer.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
         </p>
         <p>
             {{ form.quantity.label }}<br>
             {{ form.quantity() }}
+            {% for error in form.quantity.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
     </form>

@@ -1,6 +1,6 @@
 from app import app
 from app.forms import AddBeerForm
-from flask import render_template, redirect
+from flask import render_template, redirect, flash, url_for
 
 
 mock_breweries = [
@@ -47,11 +47,14 @@ def beers():
 
 
 @app.route('/beers/add', methods=['POST', 'GET'])
-def addBeer():
+def add_beer():
     form = AddBeerForm()
     if form.validate_on_submit():
-        mock_beers.append(form.beer.data)
-        mock_breweries.append(form.brewery.data)
-        return redirect('/beers')
+        new_beer = form.beer.data
+        new_brewery = form.brewery.data
+        mock_beers.append(new_beer)
+        mock_breweries.append(new_brewery)
+        flash('{} by {} added to the cellar'.format(new_beer, new_brewery))
+        return redirect(url_for(beers))
 
     return render_template('addBeer.html', title='Add a new beer', form=form)
