@@ -1,13 +1,10 @@
-<html>
-    <head>
-        <title>{{ title }} - Cellar project</title>
-    </head>
-    <body>
-        <h1>Breweries currently in the cellar</h1>
-        <ul>
-            {% for brewery in breweries %}
-            <li> {{ brewery }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Breweries currently in the cellar</h1>
+<ul>
+    {% for brewery in breweries %}
+    <li> {{ brewery }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

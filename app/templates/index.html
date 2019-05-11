@@ -1,8 +1,14 @@
 <html>
     <head>
-        <title>{{ title }} - Cellar project</title>
+        {% if title %}
+        <title>{{ title }} - Beer Cellar</title>
+        {% else %}
+        <title>Beer Cellar</title>
+        {% endif %}
     </head>
     <body>
-        <h1>Hello, {{ user.username }}!</h1>
+        <div>Beer Cellar: <a href="/index">Home</a> / <a href="/breweries">Breweries</a></div>
+        <hr>
+    {% block content %}{% endblock %}
     </body>
 </html>

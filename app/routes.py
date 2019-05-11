@@ -30,17 +30,11 @@ def index():
     user = {'username': 'Karla'}
     return render_template('index.html', title='Home', user=user)
 
-
-@app.route('/cellar')
-def cellar():
-    return "This is a mock of what you have on your cellar, stay tuned"
-
-
-@app.route('/cellar/breweries')
+@app.route('/breweries')
 def breweries():
     return render_template('breweries.html', breweries=mock_breweries)
 
 
-@app.route('/cellar/brewery/<name>')
+@app.route('/brewery/<name>')
 def brewery(name):
-    return render_template('brewery.html', brewery=name, beers=mock_beers)
+    return render_template('brewery.html', title=name, brewery=name, beers=mock_beers)
