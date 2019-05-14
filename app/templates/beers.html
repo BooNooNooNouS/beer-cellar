@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
    {% for beer in beers %}
-    <li> {{ beer }}</li>
+        {% include '_beer.html' %}
     {% endfor %}
 </ul>
 {% endblock %}

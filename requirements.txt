@@ -5,3 +5,5 @@ flask-wtf
 wtforms
 flask-sqlalchemy
 flask-migrate
+mysql-connector-python
+mysqlclient

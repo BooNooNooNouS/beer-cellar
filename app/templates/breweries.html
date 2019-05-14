@@ -4,7 +4,7 @@
 <h1>Breweries currently in the cellar</h1>
 <ul>
     {% for brewery in breweries %}
-    <li> {{ brewery }}</li>
+    <li> {{ brewery.name }} from {{ brewery.country }}: {{ brewery.descript }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
